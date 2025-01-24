@@ -40,6 +40,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
+  padding-top: 1rem;
 }
 
 .min-h-screen {
@@ -48,8 +49,8 @@ body {
 
 /* Header */
 .header {
-  background: var(--primary-gradient);
-  padding: 1rem 0;
+  background: #106dca;
+  padding: 1rem 1rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
@@ -211,7 +212,7 @@ body {
 .btn-primary {
   background: var(--primary-gradient);
   color: white;
-  box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 2px 4px rgba(26, 27, 92, 0.2);
 }
 
 .btn-primary:hover {
@@ -283,7 +284,7 @@ body {
 }
 
 .skill-tag {
-  background: var(--primary-gradient);
+  background: #131f31;
   color: white;
   padding: 0.35rem 1rem;
   border-radius: 9999px;
@@ -382,16 +383,16 @@ body {
 
 /* landing */
 
-/* Add to your existing CSS */
-
 .landing-container {
   min-height: 100vh;
-  background-color: #ffffff;
+  background: linear-gradient(135deg, #f0f8ff, #eeeff6);
 }
+
 
 .landing-header {
   padding: 1rem 2rem;
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px solid #a8a8a8;
+  background-color: white;
 }
 
 .nav-container {
@@ -453,14 +454,16 @@ body {
 .hero-badge {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: #f8f9fa;
+  background: #496888;
   border-radius: 20px;
   margin-bottom: 2rem;
+  
 }
+
 
 .hero-badge span {
   font-size: 0.9rem;
-  color: #666;
+  color: #ffffff;
 }
 
 .hero-content h1 {
@@ -653,6 +656,42 @@ body {
 
 
 
-/* Joblist style*/
+.skills-filter {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.skill-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s;
+}
+
+.skill-checkbox:hover {
+  border-color: #1a73e8;
+}
+
+.skill-checkbox input {
+  margin: 0;
+}
+
+.skill-checkbox input:checked + span {
+  color: #1a73e8;
+  font-weight: 500;
+}
+
+.skill-checkbox span {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
 
 

@@ -8,7 +8,7 @@ import { Landing } from './components/landingpage';
 import { storage } from './storage';
 import { Application, Job, User } from './types';
 
-function App() {
+export default function App() {
   const [showLanding, setShowLanding] = useState(true);
   const [currentUser, setCurrentUser] = useState<User | null>(storage.getCurrentUser());
   const [view, setView] = useState<'jobs' | 'applications' | 'post'>('jobs');
@@ -65,12 +65,14 @@ function App() {
       <header className="header">
         <div className="header-content">
           <div className="nav-links">
-            <button
-              onClick={() => setView('jobs')}
-              className={`nav-link ${view === 'jobs' ? 'active' : ''}`}
-            >
-              Jobs
-            </button>
+            {currentUser.role === 'seeker' && (
+              <button
+                onClick={() => setView('jobs')}
+                className={`nav-link ${view === 'jobs' ? 'active' : ''}`}
+              >
+                Jobs
+              </button>
+            )}
             <button
               onClick={() => setView('applications')}
               className={`nav-link ${view === 'applications' ? 'active' : ''}`}
@@ -125,5 +127,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

@@ -1,4 +1,4 @@
-import { BriefcaseIcon, DollarSign, PlusCircle, Sparkles } from 'lucide-react';
+import { IndianRupee, PlusCircle } from 'lucide-react';
 import React, { useState } from 'react';
 import { Employer } from '../types';
 
@@ -9,6 +9,7 @@ interface JobPostProps {
     description: string;
     skillsRequired: string[];
     salaryRange: { min: number; max: number };
+    companyName: string;
   }) => void;
 }
 
@@ -19,19 +20,21 @@ export function JobPost({ currentUser, onPost }: JobPostProps) {
     skills: '',
     minSalary: '',
     maxSalary: '',
+    companyName: currentUser.company,
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     onPost({
       title: formData.title,
       description: formData.description,
-      skillsRequired: formData.skills.split(',').map(s => s.trim()),
+      skillsRequired: formData.skills.split(',').map((s) => s.trim()),
       salaryRange: {
         min: parseInt(formData.minSalary),
         max: parseInt(formData.maxSalary),
       },
+      companyName: formData.companyName,
     });
 
     setFormData({
@@ -40,6 +43,7 @@ export function JobPost({ currentUser, onPost }: JobPostProps) {
       skills: '',
       minSalary: '',
       maxSalary: '',
+      companyName: currentUser.company,
     });
   };
 
@@ -48,21 +52,37 @@ export function JobPost({ currentUser, onPost }: JobPostProps) {
       <div className="max-w-2xl mx-auto">
         <div className="bg-card-bg rounded-lg shadow-lg p-6 fade-in">
           <div className="flex items-center gap-3 mb-6">
-            <BriefcaseIcon className="h-6 w-6 text-primary" />
             <h2 className="text-xl font-semibold">Post a New Job</h2>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="form-group">
+              <label className="form-label">Company Name</label>
+              <div className="relative">
+                <input
+                  type="text"
+                  required
+                  className="form-input"
+                  value={formData.companyName}
+                  onChange={(e) =>
+                    setFormData({ ...formData, companyName: e.target.value })
+                  }
+                  placeholder="Enter your company name"
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
               <label className="form-label">Job Title</label>
               <div className="relative">
-                <BriefcaseIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-secondary h-5 w-5" />
                 <input
                   type="text"
                   required
                   className="form-input pl-10"
                   value={formData.title}
-                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, title: e.target.value })
+                  }
                   placeholder="e.g., Senior React Developer"
                 />
               </div>
@@ -75,7 +95,9 @@ export function JobPost({ currentUser, onPost }: JobPostProps) {
                 rows={4}
                 className="form-textarea"
                 value={formData.description}
-                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, description: e.target.value })
+                }
                 placeholder="Describe the job role, responsibilities, and requirements..."
               />
             </div>
@@ -83,13 +105,14 @@ export function JobPost({ currentUser, onPost }: JobPostProps) {
             <div className="form-group">
               <label className="form-label">Required Skills</label>
               <div className="relative">
-                <Sparkles className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-secondary h-5 w-5" />
                 <input
                   type="text"
                   required
                   className="form-input pl-10"
                   value={formData.skills}
-                  onChange={(e) => setFormData({ ...formData, skills: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, skills: e.target.value })
+                  }
                   placeholder="e.g., React, TypeScript, Node.js"
                 />
               </div>
@@ -102,14 +125,16 @@ export function JobPost({ currentUser, onPost }: JobPostProps) {
               <div className="form-group">
                 <label className="form-label">Minimum Salary</label>
                 <div className="relative">
-                  <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-secondary h-5 w-5" />
+                  <IndianRupee className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-secondary h-5 w-5" />
                   <input
                     type="number"
                     required
                     min="0"
                     className="form-input pl-10"
                     value={formData.minSalary}
-                    onChange={(e) => setFormData({ ...formData, minSalary: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, minSalary: e.target.value })
+                    }
                     placeholder="0"
                   />
                 </div>
@@ -117,24 +142,23 @@ export function JobPost({ currentUser, onPost }: JobPostProps) {
               <div className="form-group">
                 <label className="form-label">Maximum Salary</label>
                 <div className="relative">
-                  <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-secondary h-5 w-5" />
+                  <IndianRupee className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-secondary h-5 w-5" />
                   <input
                     type="number"
                     required
                     min="0"
                     className="form-input pl-10"
                     value={formData.maxSalary}
-                    onChange={(e) => setFormData({ ...formData, maxSalary: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, maxSalary: e.target.value })
+                    }
                     placeholder="0"
                   />
                 </div>
               </div>
             </div>
 
-            <button
-              type="submit"
-              className="btn btn-primary w-full"
-            >
+            <button type="submit" className="btn btn-primary w-full">
               <PlusCircle className="h-5 w-5" />
               Post Job
             </button>

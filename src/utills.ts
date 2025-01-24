@@ -1,13 +1,14 @@
 export const generateId = () => Math.random().toString(36).substring(2, 15);
 
 export const formatSalary = (min: number, max: number) => {
-  const formatter = new Intl.NumberFormat('en-US', {
+  const formatter = new Intl.NumberFormat('en-IN', {
     style: 'currency',
-    currency: 'USD',
+    currency: 'INR',
     maximumFractionDigits: 0,
   });
   return `${formatter.format(min)} - ${formatter.format(max)}`;
 };
+
 
 export const formatDate = (timestamp: number) => {
   return new Date(timestamp).toLocaleDateString('en-US', {

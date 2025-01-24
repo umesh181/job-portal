@@ -7,15 +7,14 @@ interface LandingProps {
 export function Landing({ onGetStarted }: LandingProps) {
   return (
     <div className="landing-container">
-      {/* Header */}
       <header className="landing-header">
         <nav className="nav-container">
           <div className="logo">
             <BriefcaseIcon className="h-6 w-6" />
-            <span>jobstera</span>
+            <span>JobHub</span>
           </div>
           <div className="nav-links">
-            <a href="#features">Features</a>
+            <a href="#features">Features</a>  
             <a href="#solutions">Solutions</a>
             <a href="#blog">Blog</a>
             <a href="#contact">Contact Us</a>
@@ -27,7 +26,6 @@ export function Landing({ onGetStarted }: LandingProps) {
         </nav>
       </header>
 
-      {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
           <div className="hero-badge">
@@ -66,10 +64,9 @@ export function Landing({ onGetStarted }: LandingProps) {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="features-section">
         <div className="feature-card">
-          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e" alt="Job Search" className="feature-image" />
+          <img src="photobg.png" alt="Job Search" className="feature-image" />
           <div className="feature-content">
             <h3>The things you care about matter to Jobstera</h3>
             <p>Unlock your potential and discover a world of opportunities that align with your skills, interests, and aspirations.</p>
@@ -78,15 +75,15 @@ export function Landing({ onGetStarted }: LandingProps) {
         </div>
       </section>
 
-      {/* Integration Section */}
+
       <section className="integration-section">
         <h2>We Empower Job Seekers Like You To Streamline And Supercharge Your Job Search.</h2>
         <div className="integration-grid">
-          {/* Integration cards would go here */}
+  
         </div>
       </section>
 
-      {/* Footer */}
+
       <footer className="landing-footer">
         <div className="footer-content">
           <div className="footer-section">

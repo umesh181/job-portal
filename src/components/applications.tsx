@@ -21,7 +21,7 @@ export function Applications({ applications, jobs, users, currentUser }: Applica
 
   return (
     <div className="container">
-      <div className="header">
+      <div >
         <Briefcase className="icon" />
         <h2 className="title">
           {currentUser.role === 'employer' ? 'Job Applications' : 'Your Applications'}

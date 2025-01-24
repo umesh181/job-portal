@@ -8,7 +8,7 @@ const STORAGE_KEYS = {
   CURRENT_USER: 'jobPortal_currentUser',
 };
 
-// Dummy jobs data
+
 const dummyJobs: Omit<Job, 'id'>[] = [
   {
     employerId: 'dummy-employer-1',
@@ -17,6 +17,7 @@ const dummyJobs: Omit<Job, 'id'>[] = [
     skillsRequired: ['React', 'TypeScript', 'Redux', 'Node.js'],
     salaryRange: { min: 100000, max: 150000 },
     createdAt: Date.now() - 7 * 24 * 60 * 60 * 1000, // 7 days ago
+    companyName: 'Google',
   },
   {
     employerId: 'dummy-employer-2',
@@ -24,7 +25,8 @@ const dummyJobs: Omit<Job, 'id'>[] = [
     description: 'Join our fast-growing startup as a Full Stack Developer. Work on exciting projects using modern technologies.',
     skillsRequired: ['React', 'Node.js', 'PostgreSQL', 'AWS'],
     salaryRange: { min: 90000, max: 130000 },
-    createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000, // 5 days ago
+    createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000,
+    companyName: 'Rjay Technologies',
   },
   {
     employerId: 'dummy-employer-1',
@@ -32,11 +34,11 @@ const dummyJobs: Omit<Job, 'id'>[] = [
     description: 'Looking for a creative UI/UX designer with experience in designing modern web applications.',
     skillsRequired: ['Figma', 'Adobe XD', 'UI Design', 'User Research'],
     salaryRange: { min: 80000, max: 120000 },
-    createdAt: Date.now() - 3 * 24 * 60 * 60 * 1000, // 3 days ago
+    createdAt: Date.now() - 3 * 24 * 60 * 60 * 1000,
+    companyName: 'Amazon',
   },
 ];
 
-// Initialize dummy data if not exists
 const initializeDummyData = () => {
   const jobs = storage.getJobs();
   if (jobs.length === 0) {
@@ -127,5 +129,4 @@ export const storage = {
   },
 };
 
-// Initialize dummy data
 initializeDummyData();
